@@ -97,12 +97,13 @@ async function fetchData(nameToSearch) {
       if (name === nameToSearch.toLowerCase()) {
         const timestamp = cols[0]?.trim();
         const email = cols[2]?.trim();
-        const referCode = cols[3]?.trim();
+        const referBy = cols[3]?.trim();
         const phone = cols[4]?.trim();
         const balance = cols[5]?.trim();
         const level = cols[6]?.trim();
         const paymentCode = cols[7]?.trim();
         const withdrawals = cols[8]?.trim();
+        const referID = cols[9]?.trim(); // Assuming this is the 10th column
 
         const response = `
 Hello ${cols[1]}!
@@ -111,12 +112,13 @@ Here is your account information:
 • Timestamp: ${timestamp}
 • Name: ${cols[1]}
 • Email: ${email}
-• Refer Code: ${referCode}
-• Phone: ${phone}
+• Refer by: ${referBy}
+• Phone Number: ${phone}
 • Balance: Rs. ${balance}
 • Level: ${level}
 • Payment Code: ${paymentCode}
 • Withdrawals: Rs. ${withdrawals}
+• Your Refer ID: ${referID}
         `;
         const msg = document.createElement('div');
         msg.className = 'bot-message';
